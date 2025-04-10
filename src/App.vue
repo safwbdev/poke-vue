@@ -1,9 +1,9 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import FetchApi from './components/FetchApi.vue';
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <FetchApi/>
 </template>
 
 <style scoped>
