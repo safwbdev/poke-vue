@@ -1,9 +1,11 @@
 <script setup>
-import FetchApi from './components/FetchApi.vue';
+import { RouterView } from 'vue-router';
+import Appbar from './components/Appbar.vue'
 </script>
 
 <template>
-  <FetchApi/>
+  <Appbar/>
+  <RouterView/>
 </template>
 
 <style scoped>

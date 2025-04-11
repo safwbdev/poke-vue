@@ -37,8 +37,6 @@ export default {
 </script>
 
 <template>
-    <div>
-      <Appbar/>
     <div v-if="isLoading">Loading..</div>
     <div v-else>
       <div class="grid lg:grid-cols-3 gap-4 p-4">
@@ -49,7 +47,6 @@ export default {
           :id="index" />
       </div>
     </div>
-  </div>
   </template>
 
 <style >
