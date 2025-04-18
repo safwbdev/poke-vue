@@ -1,4 +1,5 @@
-<script></script>
+<script>
+import { RouterLink } from 'vue-router';</script>
 <template>
     <nav class="bg-gray-800">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -31,7 +32,16 @@
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Pokevue</a>
+            <RouterLink to="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Pokevue</RouterLink>
+          </div>
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+  <RouterLink to="/favorites"  class="rounded-md  px-3 py-2 text-sm font-medium text-white">
+    Favorites
+  </RouterLink>
+            <!-- <a href="#" class="rounded-md  px-3 py-2 text-sm font-medium text-white" aria-current="page">Favorites</a> -->
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 import axios from 'axios';
 import PokemonComponent from './PokemonComponent.vue'
 import Appbar from './Appbar.vue'
+import LoadingScreen from './LoadingScreen.vue';
 
 // The OGs 
 const API_URL =`https://pokeapi.co/api/v2/pokemon?limit=151`;
@@ -11,7 +12,9 @@ const API_URL =`https://pokeapi.co/api/v2/pokemon?limit=151`;
 export default {
   components:{
     Appbar,
-    PokemonComponent},
+    PokemonComponent,
+    LoadingScreen
+  },
   data() {
     return {
       pokemonData: [],
@@ -37,7 +40,9 @@ export default {
 </script>
 
 <template>
-    <div v-if="isLoading">Loading..</div>
+    <div v-if="isLoading">
+      <LoadingScreen/>
+    </div>
     <div v-else>
       <div class="grid lg:grid-cols-3 gap-4 p-4">
         <PokemonComponent 

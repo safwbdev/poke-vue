@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router/auto'
 import Main from './pages/Main.vue'
 import Favorites from './pages/Favorites.vue'
 import Pokemon from './pages/pokemon/index.vue'
+import store from "./store";
 
 const routes = [
     { path: '/', component: Main },
@@ -12,9 +13,6 @@ const routes = [
     { path: '/pokemon/:id', component: Pokemon },
 ];
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes
-})
+const router = createRouter({ history: createWebHistory(), routes })
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(store).use(router).mount('#app')

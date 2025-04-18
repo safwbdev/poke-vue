@@ -1,6 +1,18 @@
 <script>
 import axios from 'axios';
+import MoveList from '../../components/pokemon/MoveList.vue';
+import MainDetails from '../../components/pokemon/MainDetails.vue';
+import AbilityList from '../../components/pokemon/AbilityList.vue';
+import StatList from '../../components/pokemon/StatList.vue';
+import LoadingScreen from '../../components/LoadingScreen.vue';
 export default{
+    components:{
+        AbilityList,
+        LoadingScreen,
+        MoveList,
+        StatList,
+        MainDetails,
+  },
     data(){
         return{
             id:this.$route.params.id,
@@ -40,29 +52,25 @@ export default{
 }
 </script>
 <template>
-    <div v-if="isLoading">
-        <h1>
-            Loading...
-        </h1>
-    </div>
-    <div v-else>
-        <h1>
-            {{id}} - {{name}}
-        </h1>
-        <div v-for="image in images"><img :src="image.front_default"/></div>
-        <hr />
-        <h3>Type</h3>
-        <div v-for="type in types">{{ type.type.name }}</div>
-        <hr />
-        <h3>Abilities</h3>
-        <div v-for="ability in abilities">{{ ability.ability.name }}</div>
-        <hr />
-        <h3>Stats</h3>
-        <div v-for="stat in stats">{{ stat.stat.name }}: {{ stat.base_stat }}</div>
-        <hr />
-        <h3>Move list</h3>
-        <div v-for="move in moveList">{{ move.move.name }}</div>
-
+    <div class="m-2">
+        <div v-if="isLoading">
+            <LoadingScreen />
+        </div>
+        <div v-else>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div v-for="image in images">
+                    <img class="h-auto max-w-full rounded-lg" :src="image.front_default" alt="">
+                </div>
+            </div>
+            <MainDetails :types :id :name/>
+            <div class="flex">
+                <StatList :stats/>
+                <div>&nbsp;</div>
+                <AbilityList :abilities/>
+            </div>
+            <MoveList :moveList  />
+            
+        </div>
     </div>
     </template>
 <style></style>
